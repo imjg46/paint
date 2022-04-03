@@ -25,18 +25,19 @@ canvas.height = _canvas_height;
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, _canvas_width, _canvas_height);
 ////////////
+
 ctx.strokeStyle = _initial_color; 
 ctx.fillStyle = _initial_color;
 ctx.lineWidth = 1.5;
 ctx.lineJoin = "round"; //선 부드럽게 이어지기 https://joylee-developer.tistory.com/138?category=944632
 ctx.lineCap = "round"; 
 
-
 let isPainting = false; //painting을 isPainting으로 사용
 let isFilling = false;
 
 function stopPainting(){
     isPainting = false;
+    ctx.beginPath(); //몰?루 아마 터치땜일거임
 }
 
 function startPainting(){
@@ -55,8 +56,8 @@ function onMouseMove(event){ //마우스 움직이는동안 항상 발생
     }
 }
 
-function onMoveTouch(event){
-    event.preventDefault(); //canvas.getBoundingClientRect = canvas의 위치 값 얻기
+function onMoveTouch(event){ //canvas.getBoundingClientRect = canvas의 위치 값 얻기
+    event.preventDefault(); 
     const x = event.changedTouches[0].pageX - canvas.getBoundingClientRect().left;
     const y = event.changedTouches[0].pageY - canvas.getBoundingClientRect().top;
     if(!isPainting){ //위에랑 같은거

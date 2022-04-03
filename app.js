@@ -58,7 +58,7 @@ function onMouseMove(event){ //마우스 움직이는동안 항상 발생
 
 function onMoveTouch(event){ //canvas.getBoundingClientRect = canvas의 위치 값 얻기
     event.preventDefault(); 
-    const x = event.changedTouches[0].pageX - canvas.getBoundingClientRect().left;
+    const x = event.changedTouches[0].pageX - canvas.getBoundingClientRect().left; 
     const y = event.changedTouches[0].pageY - canvas.getBoundingClientRect().top;
     if(!isPainting){ //위에랑 같은거
         ctx.beginPath();
@@ -104,6 +104,17 @@ function handleCanvasClick(){
     }
 }
 
+function handleCanvasTouchClick(){
+    if(isFilling){
+        ctx.fillRect(0, 0, _canvas_width, _canvas_height);
+    }else if(isPainting){ //비효율일거 같긴 한데 이거 말곤 몰?루 겠음
+        startPainting(); 
+    }else{
+        alert("handleCanvasTouchClick: unknwon mode?");
+        console.log("handleCanvasTouchClick: unknwon mode?");
+    }
+}
+
 function handleContextMenu(event){
     event.preventDefault(); //우클릭 cm방지
 }
@@ -142,7 +153,7 @@ if(canvas){
     //////////////////////////////////////////////////////////////////////
 
     //////////////////////////////// 터치 ///////////////////////////////
-    canvas.addEventListener('touchstart', startPainting); //터치 시작시 그리기
+    canvas.addEventListener('touchstart', handleCanvasTouchClick); //터치 시작시 그리기
     canvas.addEventListener('touchmove', onMoveTouch); //터치중일때 그리기
     canvas.addEventListener('touchend', stopPainting); //터치 멈출때 그리기 멈추기
     /////////////////////////////////////////////////////////////////////

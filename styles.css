@@ -1,0 +1,89 @@
+@import "reset.css";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+a:hover, a:focus { animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } 
+@keyframes rainbowChange {     
+ 0% { color: #ff2a2a; }
+ 15% { color: #ff7a2a; }
+ 30% { color: #ffc52a; }
+ 45% { color: #43ff2a; }
+ 60% { color: #2a89ff; }
+ 75% { color: #202082; }
+ 90% { color: #6b2aff; } 
+ 100% { color: #e82aff; }
+}
+
+
+/*controls__colors를 controls__color_array로 사용*/
+
+body {
+    background-color: #f6f9fc;
+    font: normal 14px 'Ubuntu', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    padding: 20px 0px;
+}
+
+.canvas {
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.controls {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls .controls__btns {
+    margin-bottom: 30px;
+}
+
+.controls__btns button {
+    all: unset; /*기본 버튼모양 사용안함*/
+    cursor: pointer;
+    background-color: white;
+    padding: 5px 0px;
+    width: 70px;
+    text-align: center;
+    border:2px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 1);
+    border-radius: 7px;
+    /* font-weight: 600; */
+    font-size: 14.3px;
+}
+
+.controls__btns button:active {
+    transform:scale(0.95);
+}
+
+.controls .controls__color__array {
+    display: flex;
+}
+
+.controls__color__array .controls__color { /*앞에 순서 맞춰줘야함 점점 작아지는 단위로*/
+    width: 50px;
+    height: 50px;
+    border-radius: 25px; /*원만들기는 25px*/
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.controls__color {
+    margin: 2px;
+}
+
+.controls__color:active {
+    transform:scale(0.94);
+}
+
+.controls .controls_size{
+    margin-bottom: 20px;
+}

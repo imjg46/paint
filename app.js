@@ -104,14 +104,11 @@ function handleCanvasClick(){
     }
 }
 
-function handleCanvasTouchClick(){
+function handleCanvasTouchClick(){ //될지 몰?루
     if(isFilling){
         ctx.fillRect(0, 0, _canvas_width, _canvas_height);
-    }else if(isPainting){ //비효율일거 같긴 한데 이거 말곤 몰?루 겠음
+    }else {
         startPainting(); 
-    }else{
-        alert("handleCanvasTouchClick: unknwon mode?");
-        console.log("handleCanvasTouchClick: unknwon mode?");
     }
 }
 

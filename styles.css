@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
 a:hover, a:focus { animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } 
-@keyframes rainbowChange {     
+@keyframes rainbowChange {    
  0% { color: #ff2a2a; }
  15% { color: #ff7a2a; }
  30% { color: #ffc52a; }
@@ -50,7 +50,7 @@ body {
     cursor: pointer;
     background-color: white;
     padding: 5px 0px;
-    width: 70px;
+    width: 100px;
     text-align: center;
     border:2px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
